@@ -168,16 +168,16 @@ function MetricCard({
 
 function TrustMarquee() {
   const clients = [
-    "Ashford House",
+    "Ashford Peluquería y Barbería",
     "Lexinton Abogados",
-    "FollowRadar",
-    "Eventro",
-    "Clínica Veralia",
-    "Grupo Almanzor",
-    "Nexa Dental Studio",
-    "Atelier Brisa",
-    "Taller Montecar",
-    "Hotel Costa Elma"
+    "Bravena Studio",
+    "Eventalia Norte",
+    "Clínica Norvessa",
+    "Grupo Talver",
+    "Nexa Aurora",
+    "Atelier Sorella",
+    "Taller Valmora",
+    "Hotel Brisanto"
   ];
 
   const items = [...clients, ...clients];
