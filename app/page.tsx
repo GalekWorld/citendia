@@ -18,9 +18,7 @@ import { BrandMark } from "@/components/brand/brand-mark";
 import type { LandingPackage } from "@/lib/landing-packages";
 import { defaultLandingPackages } from "@/lib/landing-packages";
 
-const whatsappHref =
-  process.env.NEXT_PUBLIC_WHATSAPP_URL ??
-  "https://api.whatsapp.com/send?text=Hola%2C%20quiero%20informacion%20sobre%20Citendia";
+const salesMailto = "mailto:info@citendia.com?subject=Quiero%20hablar%20con%20ventas";
 
 const useCases = [
   {
@@ -133,9 +131,7 @@ function Header() {
 
           <a
             className="interactive-lift inline-flex h-[42px] items-center justify-center rounded-full bg-[#1854ff] px-5 text-[13px] font-semibold text-white shadow-[0_18px_40px_-16px_rgba(24,84,255,0.9)] hover:bg-[#0f46ea] sm:px-6 sm:text-[14px]"
-            href={whatsappHref}
-            rel="noreferrer"
-            target="_blank"
+            href={salesMailto}
           >
             Hablar con ventas
           </a>
@@ -431,13 +427,14 @@ function UseCasesSection() {
           </h2>
         </div>
 
-        <div className="mt-9 flex flex-wrap gap-3 rounded-full border border-[#dbe3ef] bg-white p-3 shadow-[0_10px_26px_-24px_rgba(15,23,42,0.2)]">
+        <div className="-mx-1 mt-9 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="inline-flex min-w-full gap-2 rounded-[24px] border border-[#dbe3ef] bg-white p-2 shadow-[0_10px_26px_-24px_rgba(15,23,42,0.2)] sm:min-w-0 sm:flex-wrap sm:gap-3 sm:rounded-full sm:p-3">
           {useCases.map((item) => {
             const isActive = item.key === activeTab;
 
             return (
               <button
-                className={`interactive-lift rounded-full px-5 py-3 text-[15px] font-medium ${
+                className={`interactive-lift shrink-0 whitespace-nowrap rounded-full px-4 py-2.5 text-[14px] font-medium sm:px-5 sm:py-3 sm:text-[15px] ${
                   isActive
                     ? "bg-[#1854ff] text-white shadow-[0_18px_30px_-18px_rgba(24,84,255,0.9)]"
                     : "text-[#60708c] hover:text-[#1854ff]"
@@ -451,24 +448,25 @@ function UseCasesSection() {
             );
           })}
         </div>
+        </div>
 
-        <div className="mt-10 rounded-[28px] border border-[#dbe3ef] bg-[linear-gradient(90deg,rgba(15,23,42,0.05)_0%,rgba(255,255,255,0.8)_100%)] px-6 py-8 shadow-[0_18px_40px_-34px_rgba(15,23,42,0.22)] sm:px-8 sm:py-10 lg:grid lg:grid-cols-[1.02fr_0.98fr] lg:gap-10 lg:px-12">
+        <div className="mt-8 rounded-[24px] border border-[#dbe3ef] bg-[linear-gradient(90deg,rgba(15,23,42,0.05)_0%,rgba(255,255,255,0.82)_100%)] px-5 py-6 shadow-[0_18px_40px_-34px_rgba(15,23,42,0.22)] sm:mt-10 sm:rounded-[28px] sm:px-8 sm:py-10 lg:grid lg:grid-cols-[1.02fr_0.98fr] lg:gap-10 lg:px-12">
           <div className="max-w-[480px] text-left">
-            <h3 className="text-[28px] font-semibold leading-[1.1] tracking-[-0.05em] text-[#061024] sm:text-[32px]">
+            <h3 className="text-[24px] font-semibold leading-[1.08] tracking-[-0.05em] text-[#061024] sm:text-[32px]">
               {activeCase.title}
             </h3>
-            <p className="mt-6 text-[15px] leading-[1.7] text-[#55657f] sm:text-[16px]">
+            <p className="mt-4 text-[14px] leading-[1.7] text-[#55657f] sm:mt-6 sm:text-[16px]">
               {activeCase.description}
             </p>
           </div>
 
-          <div className="mt-8 space-y-5 lg:mt-0 lg:pt-2">
+          <div className="mt-7 space-y-4 lg:mt-0 lg:pt-2">
             {activeCase.bullets.map((bullet) => (
               <div className="flex items-start gap-4 text-left" key={bullet}>
-                <div className="mt-0.5 flex h-7 w-7 items-center justify-center rounded-full bg-[#1854ff] text-white">
-                  <Check className="h-4 w-4" />
+                <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#1854ff] text-white sm:h-7 sm:w-7">
+                  <Check className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                 </div>
-                <p className="text-[15px] leading-[1.55] text-[#091126] sm:text-[16px]">{bullet}</p>
+                <p className="text-[14px] leading-[1.55] text-[#091126] sm:text-[16px]">{bullet}</p>
               </div>
             ))}
           </div>

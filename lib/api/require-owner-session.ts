@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { requireAdminSession } from "@/lib/api/require-admin-session";
-import { OWNER_EMAIL } from "@/lib/owner";
+import { isOwnerEmail } from "@/lib/owner";
 
 export async function requireOwnerSession() {
   const auth = await requireAdminSession();
@@ -8,7 +8,7 @@ export async function requireOwnerSession() {
     return auth;
   }
 
-  if (auth.user.email !== OWNER_EMAIL) {
+  if (!isOwnerEmail(auth.user.email)) {
     return {
       error: NextResponse.json({ error: "Forbidden" }, { status: 403 })
     };

@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { AppUser } from "@/types";
-import { OWNER_EMAIL } from "@/lib/owner";
+import { isOwnerEmail } from "@/lib/owner";
 
 type AuthContext = {
   supabase: Awaited<ReturnType<typeof createClient>>;
@@ -53,7 +53,7 @@ export async function requireAdmin() {
 export async function requireOwner() {
   const context = await requireAdmin();
 
-  if (context.user.email !== OWNER_EMAIL) {
+  if (!isOwnerEmail(context.user.email)) {
     redirect("/dashboard");
   }
 

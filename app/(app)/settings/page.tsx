@@ -81,7 +81,7 @@ export default async function SettingsPage() {
         <p className="text-xs uppercase tracking-[0.28em] text-slate-400">Landing</p>
         <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">Precios y paquetes</h2>
         <p className="mt-3 max-w-2xl text-sm text-slate-500">
-          Solo tu cuenta puede editar los paquetes que se muestran en la web publica.
+          Solo las cuentas propietarias pueden editar los paquetes que se muestran en la web publica.
         </p>
       </div>
 
