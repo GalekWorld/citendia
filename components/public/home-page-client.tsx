@@ -6,7 +6,7 @@ import { ArrowRight, CalendarDays, Check, Mail, MessageCircleMore, Phone, PlayCi
 import { toast } from "sonner";
 import type { LandingPackage } from "@/lib/landing-packages";
 import { defaultLandingPackages } from "@/lib/landing-packages";
-import { faqItems, processSteps, useCases, benefits } from "@/components/public/content";
+import { useCases } from "@/components/public/content";
 import { CookieBanner } from "@/components/public/cookie-banner";
 import { SiteFooter } from "@/components/public/site-footer";
 import { SiteHeader } from "@/components/public/site-header";
@@ -18,13 +18,9 @@ export function HomePageClient() {
       <main className="min-h-screen bg-white text-[#091126]">
         <Hero />
         <TrustMarquee />
-        <WhatDoesSection />
-        <BenefitsSection />
-        <HowItWorksSection />
         <ServicesSection />
         <UseCasesSection />
         <PricingSection />
-        <FaqSection />
         <ContactSection />
       </main>
       <SiteFooter />
@@ -200,85 +196,6 @@ function TrustMarquee() {
             <span className="whitespace-nowrap text-[16px] font-semibold tracking-[-0.04em] text-[#9aa7bd]" key={`${client}-${index}`}>
               {client}
             </span>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function WhatDoesSection() {
-  return (
-    <section className="section-divider bg-white px-4 py-18 sm:px-6 sm:py-22 lg:px-8">
-      <div className="mx-auto grid w-full max-w-[1140px] gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-        <div className="text-left">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#1854ff]">Qué hace Citendia</p>
-          <h2 className="mt-4 text-[30px] font-semibold leading-[1.06] tracking-[-0.06em] text-[#071027] sm:text-[36px] lg:text-[40px]">
-            Atiende llamadas y mensajes, agenda citas y evita pérdidas de clientes.
-          </h2>
-          <p className="mt-5 text-[16px] leading-[1.75] text-[#55657f]">
-            Citendia está pensado para negocios con atención al cliente constante: peluquerías, clínicas, restaurantes, centros de estética, talleres, inmobiliarias y empresas que reciben llamadas comerciales o de soporte durante todo el día.
-          </p>
-        </div>
-
-        <div className="grid gap-4 sm:grid-cols-2">
-          {[
-            "Responde llamadas entrantes con un agente de IA entrenado para tu negocio.",
-            "Gestiona mensajes y consultas rápidas por canales digitales.",
-            "Agenda citas, reservas o visitas sin depender del equipo humano.",
-            "Mantiene atención 24/7 para negocios españoles que no quieren perder oportunidades."
-          ].map((item) => (
-            <article className="rounded-[20px] border border-[#dbe3ef] bg-white p-5 shadow-[0_12px_36px_-30px_rgba(15,23,42,0.22)]" key={item}>
-              <p className="text-[15px] leading-[1.65] text-[#091126]">{item}</p>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function BenefitsSection() {
-  return (
-    <section className="section-divider bg-white px-4 py-18 sm:px-6 sm:py-22 lg:px-8">
-      <div className="mx-auto w-full max-w-[1140px]">
-        <div className="max-w-[760px] text-left">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#1854ff]">Beneficios</p>
-          <h2 className="mt-4 text-[30px] font-semibold leading-[1.06] tracking-[-0.06em] text-[#071027] sm:text-[36px] lg:text-[40px]">
-            Más atención al cliente, menos caos operativo y mejor conversión.
-          </h2>
-        </div>
-
-        <div className="mt-9 grid gap-4 lg:grid-cols-5">
-          {benefits.map((item) => (
-            <article className="rounded-[20px] border border-[#dbe3ef] bg-[#f8fbff] p-5" key={item}>
-              <p className="text-[15px] leading-[1.65] text-[#091126]">{item}</p>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function HowItWorksSection() {
-  return (
-    <section className="section-divider bg-white px-4 py-18 sm:px-6 sm:py-22 lg:px-8">
-      <div className="mx-auto w-full max-w-[1140px]">
-        <div className="max-w-[700px] text-left">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#1854ff]">Cómo funciona</p>
-          <h2 className="mt-4 text-[30px] font-semibold leading-[1.06] tracking-[-0.06em] text-[#071027] sm:text-[36px] lg:text-[40px]">
-            Diseñamos el agente, lo conectamos y lo mejoramos contigo.
-          </h2>
-        </div>
-
-        <div className="mt-9 grid gap-4 lg:grid-cols-4">
-          {processSteps.map((step, index) => (
-            <article className="rounded-[22px] border border-[#dbe3ef] bg-white p-6 shadow-[0_12px_36px_-30px_rgba(15,23,42,0.2)]" key={step.title}>
-              <p className="text-[12px] font-semibold uppercase tracking-[0.22em] text-[#1854ff]">Paso {index + 1}</p>
-              <h3 className="mt-4 text-[20px] font-semibold tracking-[-0.04em] text-[#091126]">{step.title}</h3>
-              <p className="mt-3 text-[15px] leading-[1.7] text-[#56657e]">{step.text}</p>
-            </article>
           ))}
         </div>
       </div>
@@ -535,30 +452,6 @@ function PricingCard({
         {buttonLabel}
       </a>
     </article>
-  );
-}
-
-function FaqSection() {
-  return (
-    <section className="section-divider bg-white px-4 py-18 sm:px-6 sm:py-22 lg:px-8">
-      <div className="mx-auto w-full max-w-[1140px]">
-        <div className="max-w-[680px] text-left">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#1854ff]">Preguntas frecuentes</p>
-          <h2 className="mt-4 text-[30px] font-semibold leading-[1.06] tracking-[-0.06em] text-[#071027] sm:text-[36px] lg:text-[40px]">
-            Lo que más suelen preguntar antes de implantar un agente.
-          </h2>
-        </div>
-
-        <div className="mt-9 grid gap-4 lg:grid-cols-2">
-          {faqItems.map((item) => (
-            <article className="rounded-[22px] border border-[#dbe3ef] bg-white p-6 shadow-[0_12px_36px_-30px_rgba(15,23,42,0.16)]" key={item.question}>
-              <h3 className="text-[19px] font-semibold tracking-[-0.04em] text-[#091126]">{item.question}</h3>
-              <p className="mt-3 text-[15px] leading-[1.7] text-[#56657e]">{item.answer}</p>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
   );
 }
 
