@@ -366,7 +366,6 @@ function PricingSection() {
             .map((pkg) => (
               <PricingCard
                 badge={pkg.badge ?? undefined}
-                buttonLabel={pkg.button_label}
                 ctaHref={pkg.cta_href}
                 description={pkg.description}
                 features={pkg.features}
@@ -393,7 +392,6 @@ function PricingCard({
   priceSuffix,
   description,
   features,
-  buttonLabel,
   ctaHref,
   theme,
   badge
@@ -403,7 +401,6 @@ function PricingCard({
   priceSuffix?: string;
   description: string;
   features: string[];
-  buttonLabel: string;
   ctaHref: string;
   theme: "light" | "dark";
   badge?: string;
@@ -411,7 +408,7 @@ function PricingCard({
   const isDark = theme === "dark";
 
   return (
-    <article className={`interactive-lift relative rounded-[26px] border px-7 py-7 ${isDark ? "border-[#0a0f24] bg-[#050918] text-white shadow-[0_30px_60px_-40px_rgba(5,9,24,0.8)] hover:shadow-[0_40px_80px_-42px_rgba(5,9,24,0.9)]" : "border-[#dbe3ef] bg-white text-[#071027] hover:border-[#c9d7ec] hover:shadow-[0_24px_48px_-34px_rgba(15,23,42,0.2)]"}`}>
+    <article className={`interactive-lift relative flex h-full flex-col rounded-[26px] border px-7 py-7 ${isDark ? "border-[#0a0f24] bg-[#050918] text-white shadow-[0_30px_60px_-40px_rgba(5,9,24,0.8)] hover:shadow-[0_40px_80px_-42px_rgba(5,9,24,0.9)]" : "border-[#dbe3ef] bg-white text-[#071027] hover:border-[#c9d7ec] hover:shadow-[0_24px_48px_-34px_rgba(15,23,42,0.2)]"}`}>
       {badge ? (
         <div className="absolute left-6 top-0 -translate-y-1/2 rounded-full bg-[#ff5a36] px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-white">
           {badge}
@@ -434,7 +431,7 @@ function PricingCard({
 
       <p className={`mt-4 min-h-[52px] text-[15px] leading-[1.55] ${isDark ? "text-white/74" : "text-[#55657f]"}`}>{description}</p>
 
-      <div className="mt-8 space-y-4">
+      <div className="mt-8 flex-1 space-y-4">
         {features.map((feature) => (
           <div className="flex items-start gap-3" key={feature}>
             <Check className={`mt-0.5 h-4.5 w-4.5 ${isDark ? "text-[#ff5a36]" : "text-[#1854ff]"}`} />
@@ -449,7 +446,7 @@ function PricingCard({
         rel={ctaHref.startsWith("http") ? "noreferrer" : undefined}
         target={ctaHref.startsWith("http") ? "_blank" : undefined}
       >
-        {buttonLabel}
+        Hablar con ventas
       </a>
     </article>
   );
