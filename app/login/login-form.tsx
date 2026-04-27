@@ -31,19 +31,19 @@ export function LoginForm() {
           return;
         }
 
-        toast.success("Sesion iniciada");
-        router.replace((searchParams.get("next") ?? "/") as never);
+        toast.success("Sesión iniciada");
+        router.replace((searchParams.get("next") ?? "/dashboard") as never);
         router.refresh();
       }}
     >
       <label className="block">
-        <span className="mb-2 block text-sm font-medium text-ink">Email</span>
+        <span className="mb-2 block text-sm font-medium text-ink">Correo electrónico</span>
         <div className="flex items-center gap-3 rounded-2xl border border-borderBrand bg-white px-4 py-3">
           <Mail className="h-4 w-4 text-slate-400" />
           <input
             className="w-full border-0 bg-transparent outline-none"
             onChange={(event) => setEmail(event.target.value)}
-            placeholder="tu@email.com"
+            placeholder="tu@empresa.com"
             type="email"
             value={email}
           />
@@ -51,7 +51,7 @@ export function LoginForm() {
       </label>
 
       <label className="block">
-        <span className="mb-2 block text-sm font-medium text-ink">Contrasena</span>
+        <span className="mb-2 block text-sm font-medium text-ink">Contraseña</span>
         <div className="flex items-center gap-3 rounded-2xl border border-borderBrand bg-white px-4 py-3">
           <LockKeyhole className="h-4 w-4 text-slate-400" />
           <input
@@ -70,7 +70,7 @@ export function LoginForm() {
         type="submit"
       >
         {submitting ? <LoaderCircle className="h-4 w-4 animate-spin" /> : null}
-        Entrar
+        Entrar a tu cuenta
       </button>
     </form>
   );

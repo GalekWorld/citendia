@@ -22,6 +22,24 @@ const PayloadSchema = z.object({
   packages: z.array(LandingPackageSchema).min(1)
 });
 
+function getErrorMessage(error: unknown) {
+  if (error instanceof Error) {
+    return error.message;
+  }
+
+  if (typeof error === "object" && error !== null) {
+    if ("message" in error && typeof error.message === "string") {
+      return error.message;
+    }
+
+    if ("error_description" in error && typeof error.error_description === "string") {
+      return error.error_description;
+    }
+  }
+
+  return "Unexpected error";
+}
+
 export async function POST(request: Request) {
   const auth = await requireOwnerSession();
   if ("error" in auth) {
@@ -33,9 +51,27 @@ export async function POST(request: Request) {
     const payload = PayloadSchema.parse(body);
     const admin = createAdminClient();
 
-    const { error } = await admin.from("landing_packages").upsert(payload.packages, {
-      onConflict: "slug"
-    });
+    const packages = payload.packages.map((pkg) => ({
+      slug: pkg.slug.trim(),
+      name: pkg.name.trim(),
+      price: pkg.price.trim(),
+      price_suffix: pkg.price_suffix?.trim() || null,
+      description: pkg.description.trim(),
+      features: pkg.features.map((feature) => feature.trim()).filter(Boolean),
+      button_label: pkg.button_label.trim(),
+      cta_href: pkg.cta_href.trim(),
+      theme: pkg.theme,
+      badge: pkg.badge?.trim() || null,
+      sort_order: pkg.sort_order,
+      active: pkg.active
+    }));
+
+    const { error } = await admin
+      .from("landing_packages")
+      .upsert(packages, {
+        onConflict: "slug"
+      })
+      .select("slug");
 
     if (error) {
       throw error;
@@ -43,9 +79,6 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ ok: true });
   } catch (error) {
-    return NextResponse.json(
-      { error: error instanceof Error ? error.message : "Unexpected error" },
-      { status: 400 }
-    );
+    return NextResponse.json({ error: getErrorMessage(error) }, { status: 400 });
   }
 }

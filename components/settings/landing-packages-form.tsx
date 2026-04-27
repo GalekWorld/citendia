@@ -11,22 +11,26 @@ export function LandingPackagesForm({ initialPackages }: { initialPackages: Land
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setSubmitting(true);
+    try {
+      const response = await fetch("/api/landing-packages", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ packages })
+      });
 
-    const response = await fetch("/api/landing-packages", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ packages })
-    });
+      const result = await response.json().catch(() => ({ error: "No se pudo procesar la respuesta del servidor" }));
+      setSubmitting(false);
 
-    const result = await response.json();
-    setSubmitting(false);
+      if (!response.ok) {
+        toast.error(result.error ?? "No se pudieron guardar los paquetes");
+        return;
+      }
 
-    if (!response.ok) {
-      toast.error(result.error ?? "No se pudieron guardar los paquetes");
-      return;
+      toast.success("Paquetes actualizados");
+    } catch (error) {
+      setSubmitting(false);
+      toast.error(error instanceof Error ? error.message : "No se pudieron guardar los paquetes");
     }
-
-    toast.success("Paquetes actualizados");
   }
 
   return (

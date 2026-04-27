@@ -1,13 +1,13 @@
 import { ShieldCheck } from "lucide-react";
-import { createClient } from "@/lib/supabase/server";
-import { LoginForm } from "@/app/login/login-form";
-import { redirect } from "next/navigation";
-import { BrandMark } from "@/components/brand/brand-mark";
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
+import { LoginForm } from "@/app/login/login-form";
+import { BrandMark } from "@/components/brand/brand-mark";
+import { createClient } from "@/lib/supabase/server";
 
 export const metadata: Metadata = {
   title: "Acceso a Citendia",
-  description: "Acceso privado para administración y portal de clientes.",
+  description: "Inicia sesión en Citendia para revisar tu bot, llamadas, consumo y estado de tu cuenta.",
   robots: {
     index: false,
     follow: false
@@ -34,16 +34,18 @@ export default async function LoginPage() {
               <BrandMark label="Citendia" labelClassName="text-white" size="sm" />
             </div>
             <h1 className="mt-8 max-w-xl text-4xl font-semibold leading-tight tracking-tight lg:text-5xl">
-              Clientes, llamadas y facturacion.
+              Accede a tu cuenta y gestiona tu atención con Citendia.
             </h1>
-            <p className="mt-6 max-w-xl text-lg text-slate-300">Vista interna de clientes y llamadas.</p>
+            <p className="mt-6 max-w-xl text-lg text-slate-300">
+              Consulta tus llamadas, minutos, reservas y estado de servicio desde un solo lugar.
+            </p>
 
             <div className="mt-10 grid gap-4 sm:grid-cols-2">
               {[
-                "Clientes y bots en una sola vista",
-                "Llamadas y minutos sincronizados con Retell",
-                "Facturacion mensual por cliente",
-                "Estado de pago y consumo del mes"
+                "Visión clara de tu bot y su actividad",
+                "Llamadas y minutos actualizados",
+                "Seguimiento de reservas y atención",
+                "Consumo y estado de tu cuenta"
               ].map((item) => (
                 <div className="rounded-3xl border border-white/10 bg-white/5 p-4 text-sm text-slate-200" key={item}>
                   {item}
@@ -59,8 +61,12 @@ export default async function LoginPage() {
               <ShieldCheck className="h-6 w-6" />
             </div>
             <p className="mt-6 text-xs uppercase tracking-[0.28em] text-slate-400">Acceso</p>
-            <h2 className="mt-2 text-3xl font-semibold tracking-tight text-ink">Acceso administrador</h2>
-            <p className="mt-3 text-sm text-slate-500">Inicia sesion.</p>
+            <h2 className="mt-2 text-3xl font-semibold tracking-tight text-ink">
+              Inicia sesión para administrar tu bot
+            </h2>
+            <p className="mt-3 text-sm text-slate-500">
+              Entra con tu correo y contraseña para ver llamadas, consumo y estado de tu cuenta.
+            </p>
 
             <LoginForm />
           </div>
