@@ -1,4 +1,4 @@
-export const OWNER_EMAILS = ["admin@atendia.ai", "info@citendia.com"] as const;
+export const OWNER_EMAILS = ["admin@citendia.com"] as const;
 
 export function isOwnerEmail(email: string | null | undefined) {
   if (!email) {

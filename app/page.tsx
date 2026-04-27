@@ -101,7 +101,7 @@ export default function HomePage() {
 function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-white/95 backdrop-blur">
-      <div className="mx-auto flex h-[72px] w-full max-w-[1180px] items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-[68px] w-full max-w-[1140px] items-center justify-between px-4 sm:h-[72px] sm:px-6 lg:px-8">
         <Link className="flex items-center gap-3" href="/">
           <BrandMark label="Citendia" size="sm" />
         </Link>
@@ -147,14 +147,14 @@ function Hero() {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(148,163,184,0.11)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.11)_1px,transparent_1px)] bg-[size:56px_56px]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_24%,rgba(24,84,255,0.04),transparent_28%),radial-gradient(circle_at_82%_38%,rgba(24,84,255,0.04),transparent_24%)]" />
 
-      <div className="relative mx-auto grid min-h-[calc(76vh-72px)] w-full max-w-[1180px] items-center gap-12 px-4 py-12 sm:px-6 sm:py-14 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-20">
-        <div className="mx-auto w-full max-w-[500px] text-left lg:mx-0">
+      <div className="relative mx-auto grid min-h-[calc(70vh-68px)] w-full max-w-[1140px] items-center gap-10 px-4 py-10 sm:min-h-[calc(72vh-72px)] sm:px-6 sm:py-14 lg:grid-cols-[0.9fr_1.02fr] lg:gap-12 lg:px-8 lg:py-16">
+        <div className="mx-auto w-full max-w-[520px] text-left lg:mx-0">
           <div className="flex items-center gap-3 text-[10px] font-medium uppercase tracking-[0.3em] text-[#7082a3] sm:text-[11px]">
             <span className="h-2 w-2 rounded-full bg-[#ff3b30]" />
             Agentes de IA para tu negocio
           </div>
 
-          <h1 className="mt-5 text-[34px] font-semibold leading-[0.97] tracking-[-0.068em] text-[#060d23] sm:text-[42px] lg:text-[54px] xl:text-[62px]">
+          <h1 className="mt-5 text-[34px] font-semibold leading-[0.96] tracking-[-0.07em] text-[#060d23] sm:text-[44px] lg:text-[58px] xl:text-[64px]">
             Tu recepcionista
             <br />
             <span className="text-[#1854ff]">de IA</span> que nunca
@@ -162,7 +162,7 @@ function Hero() {
             duerme.
           </h1>
 
-          <p className="mt-6 max-w-[520px] text-[16px] leading-[1.62] text-[#5f6f8d] sm:text-[18px]">
+          <p className="mt-6 max-w-[540px] text-[16px] leading-[1.66] text-[#5f6f8d] sm:text-[18px]">
             Citendia disena agentes de voz y chat personalizados que cogen el telefono, agendan
             citas y atienden a tus clientes 24/7 mientras tu haces crecer el negocio.
           </p>
@@ -205,11 +205,11 @@ function Hero() {
 
 function HeroVisual() {
   return (
-    <div className="relative mx-auto hidden w-full max-w-[620px] lg:block">
-      <div className="relative mx-auto aspect-[1.03/1] w-full max-w-[620px]">
-        <div className="absolute inset-x-[34px] top-[20px] bottom-[10px] rounded-[38px] border border-[#dbe4f1] bg-white shadow-[0_40px_90px_-50px_rgba(15,23,42,0.18)]" />
+    <div className="relative mx-auto hidden w-full max-w-[560px] lg:block">
+      <div className="relative mx-auto aspect-[1.04/1] w-full max-w-[560px]">
+        <div className="absolute inset-x-[28px] top-[18px] bottom-[10px] rounded-[34px] border border-[#dbe4f1] bg-white shadow-[0_38px_80px_-52px_rgba(15,23,42,0.2)]" />
 
-        <div className="absolute inset-x-[66px] top-[50px] bottom-[42px] rounded-[32px] border border-[#dfe8f4] bg-[#fcfdff] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]">
+        <div className="absolute inset-x-[56px] top-[44px] bottom-[34px] rounded-[28px] border border-[#dfe8f4] bg-[#fcfdff] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-[11px] uppercase tracking-[0.24em] text-slate-400">Panel Citendia</p>
@@ -283,7 +283,7 @@ function ClientMarquee() {
 
   return (
     <section className="section-divider bg-white pt-8">
-      <div className="mx-auto w-full max-w-[1180px] px-4 py-5 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-[1140px] px-4 py-5 sm:px-6 lg:px-8">
         <p className="text-center text-[10px] font-medium uppercase tracking-[0.34em] text-[#8b97ad]">
           La confianza de empresas que ya no pierden ni una llamada
         </p>
@@ -343,8 +343,8 @@ function ServicesSection() {
   ];
 
   return (
-    <section className="section-divider bg-white px-4 py-20 sm:px-6 sm:py-24 lg:px-8" id="servicios">
-      <div className="mx-auto w-full max-w-[1180px]">
+    <section className="section-divider bg-white px-4 py-18 sm:px-6 sm:py-22 lg:px-8" id="servicios">
+      <div className="mx-auto w-full max-w-[1140px]">
         <div className="max-w-[660px] text-left">
           <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#1854ff]">Servicios</p>
           <h2 className="mt-4 text-[30px] font-semibold leading-[1.06] tracking-[-0.06em] text-[#071027] sm:text-[36px] lg:text-[40px]">
@@ -416,8 +416,8 @@ function UseCasesSection() {
   const activeCase = useCases.find((item) => item.key === activeTab) ?? useCases[0];
 
   return (
-    <section className="section-divider bg-white px-4 py-20 sm:px-6 sm:py-24 lg:px-8" id="casos-de-uso">
-      <div className="mx-auto w-full max-w-[1180px]">
+    <section className="section-divider bg-white px-4 py-18 sm:px-6 sm:py-22 lg:px-8" id="casos-de-uso">
+      <div className="mx-auto w-full max-w-[1140px]">
         <div className="max-w-[700px] text-left">
           <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#1854ff]">Casos de uso</p>
           <h2 className="mt-4 text-[30px] font-semibold leading-[1.06] tracking-[-0.06em] text-[#071027] sm:text-[36px] lg:text-[40px]">
@@ -497,8 +497,8 @@ function PricingSection() {
   }, []);
 
   return (
-    <section className="section-divider bg-white px-4 py-20 sm:px-6 sm:py-24 lg:px-8" id="precios">
-      <div className="mx-auto w-full max-w-[1180px]">
+    <section className="section-divider bg-white px-4 py-18 sm:px-6 sm:py-22 lg:px-8" id="precios">
+      <div className="mx-auto w-full max-w-[1140px]">
         <div className="max-w-[640px] text-left">
           <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#1854ff]">Precios</p>
           <h2 className="mt-4 text-[30px] font-semibold leading-[1.06] tracking-[-0.06em] text-[#071027] sm:text-[36px] lg:text-[40px]">
@@ -628,8 +628,8 @@ function ContactSection() {
   const [submitting, setSubmitting] = useState(false);
 
   return (
-    <section className="section-divider bg-[#050918] px-4 py-20 text-white sm:px-6 sm:py-24 lg:px-8" id="contacto">
-      <div className="mx-auto grid w-full max-w-[1180px] gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+    <section className="section-divider bg-[#050918] px-4 py-18 text-white sm:px-6 sm:py-22 lg:px-8" id="contacto">
+      <div className="mx-auto grid w-full max-w-[1140px] gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
         <div className="max-w-[380px] text-left">
           <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#ff4b3a]">Contacto</p>
           <h2 className="mt-4 text-[30px] font-semibold leading-[1.02] tracking-[-0.06em] text-white sm:text-[36px] lg:text-[40px]">
@@ -783,7 +783,7 @@ function Field({
 function Footer() {
   return (
     <footer className="border-t border-white/8 bg-[#050918] px-4 py-10 text-white sm:px-6 lg:px-8">
-      <div className="mx-auto grid w-full max-w-[1180px] gap-10 lg:grid-cols-[1.15fr_0.85fr_0.85fr_0.85fr]">
+      <div className="mx-auto grid w-full max-w-[1140px] gap-10 lg:grid-cols-[1.15fr_0.85fr_0.85fr_0.85fr]">
         <div className="max-w-[320px]">
             <BrandMark label="Citendia" size="sm" labelClassName="text-white" />
 
