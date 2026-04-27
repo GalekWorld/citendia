@@ -232,7 +232,7 @@ function ServicesSection() {
   ] as const;
 
   return (
-    <section className="section-divider bg-white px-4 py-18 sm:px-6 sm:py-22 lg:px-8" id="servicios">
+    <section className="section-divider bg-white px-4 py-24 sm:px-6 sm:py-28 lg:px-8" id="servicios">
       <div className="mx-auto w-full max-w-[1140px]">
         <div className="max-w-[660px] text-left">
           <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#1854ff]">Servicios</p>
@@ -274,7 +274,7 @@ function UseCasesSection() {
   const activeCase = useCases.find((item) => item.key === activeTab) ?? useCases[0];
 
   return (
-    <section className="section-divider bg-white px-4 py-18 sm:px-6 sm:py-22 lg:px-8" id="casos-de-uso">
+    <section className="section-divider bg-white px-4 py-24 sm:px-6 sm:py-28 lg:px-8" id="casos-de-uso">
       <div className="mx-auto w-full max-w-[1140px]">
         <div className="max-w-[700px] text-left">
           <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#1854ff]">Casos de uso</p>
@@ -347,7 +347,7 @@ function PricingSection() {
   }, []);
 
   return (
-    <section className="section-divider bg-white px-4 py-18 sm:px-6 sm:py-22 lg:px-8" id="precios">
+    <section className="section-divider bg-white px-4 py-24 sm:px-6 sm:py-28 lg:px-8" id="precios">
       <div className="mx-auto w-full max-w-[1140px]">
         <div className="max-w-[640px] text-left">
           <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#1854ff]">Precios</p>
@@ -466,7 +466,7 @@ function ContactSection() {
   const [submitting, setSubmitting] = useState(false);
 
   return (
-    <section className="section-divider bg-[#050918] px-4 py-18 text-white sm:px-6 sm:py-22 lg:px-8" id="contacto">
+    <section className="section-divider bg-[#050918] px-4 py-24 text-white sm:px-6 sm:py-28 lg:px-8" id="contacto">
       <div className="mx-auto grid w-full max-w-[1140px] gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
         <div className="max-w-[420px] text-left">
           <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#ff4b3a]">Solicitar demo</p>
