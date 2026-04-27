@@ -8,7 +8,7 @@ export function SiteFooter() {
         <div className="max-w-[340px]">
           <BrandMark label="Citendia" labelClassName="text-white" size="sm" />
           <p className="mt-5 text-[15px] leading-[1.7] text-white/70">
-            Citendia ofrece agentes de llamadas y mensajes para negocios en España. Automatiza atención al cliente, citas, reservas y seguimiento comercial sin perder llamadas fuera de horario.
+            Citendia ofrece agentes de llamadas y mensajes para negocios en España. Titular actual del sitio: GalekNetwork. Contacto: info@citendia.com.
           </p>
         </div>
 
