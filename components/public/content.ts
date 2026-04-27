@@ -58,6 +58,18 @@ export const useCases = [
       "Información sobre horarios, recogidas y disponibilidad",
       "Atención estable incluso fuera del horario comercial"
     ]
+  },
+  {
+    key: "personalizacion",
+    label: "Personaliza tu agente",
+    title: "Un agente adaptado a tu negocio, tu tono y tu forma de atender.",
+    description:
+      "Citendia se configura a medida para que el agente responda como tu equipo, siga tus procesos y atienda llamadas o mensajes con la información real de tu negocio.",
+    bullets: [
+      "Guiones, respuestas y tono ajustados a tu marca",
+      "Horarios, servicios y reglas de reserva personalizados",
+      "Integración con tus canales y forma de trabajar"
+    ]
   }
 ] as const;
 
