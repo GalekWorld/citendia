@@ -1,6 +1,14 @@
 import { AccountSidebar } from "@/components/layout/account-sidebar";
 import { AccountTopbar } from "@/components/layout/account-topbar";
 import { requireClient } from "@/lib/auth/require-user";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: false
+  }
+};
 
 export default async function AccountLayout({ children }: { children: React.ReactNode }) {
   const { user, supabase, appUser } = await requireClient();

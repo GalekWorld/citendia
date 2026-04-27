@@ -4,6 +4,14 @@ import { createServerClient } from "@supabase/ssr";
 const PRIVATE_PATHS = ["/dashboard", "/clients", "/bots", "/calls", "/billing", "/settings", "/account"];
 
 export async function middleware(request: NextRequest) {
+  const host = request.headers.get("host");
+  if (host === "www.citendia.com") {
+    const url = request.nextUrl.clone();
+    url.host = "citendia.com";
+    url.protocol = "https";
+    return NextResponse.redirect(url, 308);
+  }
+
   let response = NextResponse.next({
     request
   });

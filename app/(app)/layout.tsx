@@ -1,6 +1,14 @@
 import { Sidebar } from "@/components/layout/sidebar";
 import { Topbar } from "@/components/layout/topbar";
 import { requireAdmin } from "@/lib/auth/require-user";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: false
+  }
+};
 
 export default async function AppLayout({ children }: { children: React.ReactNode }) {
   const { user } = await requireAdmin();

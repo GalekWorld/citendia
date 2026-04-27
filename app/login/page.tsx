@@ -3,6 +3,16 @@ import { createClient } from "@/lib/supabase/server";
 import { LoginForm } from "@/app/login/login-form";
 import { redirect } from "next/navigation";
 import { BrandMark } from "@/components/brand/brand-mark";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Acceso a Citendia",
+  description: "Acceso privado para administración y portal de clientes.",
+  robots: {
+    index: false,
+    follow: false
+  }
+};
 
 export default async function LoginPage() {
   const supabase = await createClient();

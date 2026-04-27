@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import { Toaster } from "sonner";
+import { rootMetadata } from "@/lib/seo";
 import "@/app/globals.css";
 
 const manrope = Manrope({
@@ -8,15 +9,7 @@ const manrope = Manrope({
   variable: "--font-sans"
 });
 
-export const metadata: Metadata = {
-  title: "Citendia",
-  description: "Clientes, llamadas y facturacion.",
-  icons: {
-    icon: "/icon.png",
-    shortcut: "/icon.png",
-    apple: "/icon.png"
-  }
-};
+export const metadata: Metadata = rootMetadata;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
