@@ -9,7 +9,16 @@ const manrope = Manrope({
   variable: "--font-sans"
 });
 
-export const metadata: Metadata = rootMetadata;
+export const metadata: Metadata = {
+  ...rootMetadata,
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" }
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180" }]
+  }
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
